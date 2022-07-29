@@ -24,10 +24,13 @@ namespace Cache1.Controllers
 
             // 1) 從緩存取數據 2)沒有的話到資料源取數據
             Book? b = await memoryCache.GetOrCreateAsync("Book"+id, async(e) =>{
-                Console.WriteLine("還存沒有，到數據庫查");
+                Console.WriteLine("緩存沒有，到數據庫查");
                 // e.AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(10); // 緩存10秒
-                e.SlidingExpiration = TimeSpan.FromSeconds(10);
-                return await MyDbContext.GetByIdAsync(id);
+                
+                Book? d = await MyDbContext.GetByIdAsync(id);
+                Console.WriteLine("從數據庫中查詢的結果是"+(d==null?"null":d));
+
+                return d;
             });
 
             Console.WriteLine($"緩存結果{b}");
