@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI2_async", "WebAPI2_async\WebAPI2_async.csproj", "{615ACAE5-2383-4F62-9085-A7C112D0C975}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cache1", "Cache1\Cache1.csproj", "{2FF4691E-BC61-4749-A621-B214DE0BCC4B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{615ACAE5-2383-4F62-9085-A7C112D0C975}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{615ACAE5-2383-4F62-9085-A7C112D0C975}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{615ACAE5-2383-4F62-9085-A7C112D0C975}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FF4691E-BC61-4749-A621-B214DE0BCC4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FF4691E-BC61-4749-A621-B214DE0BCC4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FF4691E-BC61-4749-A621-B214DE0BCC4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FF4691E-BC61-4749-A621-B214DE0BCC4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
