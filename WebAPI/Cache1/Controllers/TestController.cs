@@ -52,13 +52,20 @@ namespace Cache1.Controllers
             Book? book;
             string? s = await distCache.GetStringAsync("Book"+id);
 
+            Console.WriteLine(s);
             Console.WriteLine("開始執行");
             if (s == null)
             {
                 Console.WriteLine("緩存沒有，到數據庫查");
                 book = await MyDbContext.GetByIdAsync(id);
                 // 將object序列化保存
-                await distCache.SetStringAsync("Book" + id, JsonSerializer.Serialize(book));
+                await distCache.SetStringAsync(
+                    "Book" + id, 
+                    JsonSerializer.Serialize(book), 
+                    new DistributedCacheEntryOptions { 
+                        AbsoluteExpirationRelativeToNow=TimeSpan.FromSeconds(10)
+                    });
+                
                 Console.WriteLine("從數據庫中查詢的結果是" + (book == null ? "null" : book));
             }
             else
