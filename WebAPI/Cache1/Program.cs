@@ -20,6 +20,10 @@ Console.WriteLine(app.Environment.EnvironmentName);
 Console.WriteLine(app.Environment.IsDevelopment());
 Console.WriteLine(app.Environment.IsProduction());
 
+string pass = app.Configuration.GetSection("testPassword").Value;
+Console.WriteLine(pass);
+
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
