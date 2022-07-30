@@ -16,6 +16,10 @@ builder.Services.AddStackExchangeRedisCache(options =>
 
 var app = builder.Build();
 
+Console.WriteLine(app.Environment.EnvironmentName);
+Console.WriteLine(app.Environment.IsDevelopment());
+Console.WriteLine(app.Environment.IsProduction());
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
