@@ -11,8 +11,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddMemoryCache();
+
 builder.Services.Configure<MvcOptions>(opt =>
 {
+    opt.Filters.Add<RateLimitActionFilter>(); // 這個放前面一點先執行，一旦攔截後面就不用再做了
     opt.Filters.Add<MyActionFilter2>();
     opt.Filters.Add<MyActionFilter>();
     opt.Filters.Add<TransactionScopeFilter>();
