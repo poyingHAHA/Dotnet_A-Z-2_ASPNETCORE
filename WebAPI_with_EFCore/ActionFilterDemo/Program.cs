@@ -1,5 +1,6 @@
 using ActionFilterDemo;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,11 @@ builder.Services.Configure<MvcOptions>(opt =>
 {
     opt.Filters.Add<MyActionFilter2>();
     opt.Filters.Add<MyActionFilter>();
+    opt.Filters.Add<TransactionScopeFilter>();
+});
+
+builder.Services.AddDbContext<MyDbContext>(opt => {
+    opt.UseSqlServer("Server=localhost;Database=demo7;User Id=sa;Password=PaSSword12!;Trusted_Connection=False;MultipleActiveResultSets=true;");
 });
 
 var app = builder.Build();
